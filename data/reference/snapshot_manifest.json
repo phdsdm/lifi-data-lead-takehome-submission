@@ -1,0 +1,92 @@
+{
+  "coingecko_hourly_prices_2026-10-13_to_2026-10-19.csv": {
+    "fetched_at_utc": "2026-10-28T16:06:54+00:00",
+    "note": "256 requests for 255 (chain, token) pairs; pairs with at least one hour: 249; HTTP statuses {200: 250, 404: 6}; key used: True; request log in coingecko_request_log.csv",
+    "notebook_section": "01 §6",
+    "rows": 41777,
+    "source_url": "https://api.coingecko.com/api/v3/coins/<platform>/contract/<address>/market_chart/range?vs_currency=usd&from=1791849600&to=1792454400 and https://api.coingecko.com/api/v3/coins/<coin_id>/market_chart/range?…"
+  },
+  "coingecko_request_log.csv": {
+    "fetched_at_utc": "2026-10-28T16:06:54+00:00",
+    "note": "one row per CoinGecko request: chain, token, request URL (no key), HTTP status, points returned, hours inside the window",
+    "notebook_section": "01 §6",
+    "rows": 256,
+    "source_url": "https://api.coingecko.com/api/v3/coins/<platform>/contract/<address>/market_chart/range?vs_currency=usd&from=1791849600&to=1792454400 and https://api.coingecko.com/api/v3/coins/<coin_id>/market_chart/range?…"
+  },
+  "defillama_lifi_daily.csv": {
+    "fetched_at_utc": "2026-11-03T06:49:28+00:00",
+    "note": "8 calls from 2026-11-03T06:49:28+00:00 to 2026-11-03T06:49:31+00:00, no key; long format from each response's totalDataChartBreakdown; DefiLlama can revise past days, so this date matters",
+    "notebook_section": "08 §2",
+    "rows": 190828,
+    "source_url": "https://api.llama.fi/summary/fees/li.fi?dataType=dailyFees; https://api.llama.fi/summary/fees/li.fi?dataType=dailyRevenue; https://api.llama.fi/summary/fees/li.fi-bridge-aggregator?dataType=dailyFees; https://api.llama.fi/summary/fees/li.fi-bridge-aggregator?dataType=dailyRevenue; https://api.llama.fi/summary/fees/li.fi-bridge-aggregator?dataType=dailySupplySideRevenue; https://api.llama.fi/summary/fees/li.fi-dex-aggregator?dataType=dailyFees; https://api.llama.fi/summary/fees/li.fi-dex-aggregator?dataType=dailyRevenue; https://api.llama.fi/summary/bridge-aggregators/li.fi-bridge-aggregator"
+  },
+  "lifi_api_chains.csv": {
+    "fetched_at_utc": "2026-10-28T14:48:32+00:00",
+    "note": "chainTypes names every value the endpoint accepts; without it only EVM chains are returned. Correction 2026-10-28: the parameter also accepts STL, which this fetch did not pass, so Stellar is missing; see lifi_api_chains_with_stl_2026-10-28.csv",
+    "notebook_section": "01 §2",
+    "rows": 70,
+    "source_url": "https://li.quest/v1/chains?chainTypes=EVM,SVM,UTXO,MVM,TVM"
+  },
+  "lifi_api_chains_with_stl_2026-10-28.csv": {
+    "fetched_at_utc": "2026-10-28T21:35:06+00:00",
+    "note": "chainTypes with all six values LI.FI's API reference lists (EVM, SVM, UTXO, MVM, TVM, STL); lifi_api_chains.csv (§2) passed five and lacks Stellar; derived from the raw responses at 2026-10-28T21:47:47+00:00",
+    "notebook_section": "01 §2.1",
+    "rows": 71,
+    "source_url": "https://li.quest/v1/chains?chainTypes=EVM,SVM,UTXO,MVM,TVM,STL"
+  },
+  "lifi_api_tokens_by_chain.csv": {
+    "fetched_at_utc": "2026-10-28T14:48:32+00:00",
+    "note": "one /v1/tokens call per chain id for 69 ids (6 source + destination ids); HTTP 400 for ids ['204', '232', '60808', '81457', '1885080386571452']; HTTP 200 with an empty list for ids ['1201081091099710']; 5 single /v1/token lookups for sendingAssetIds missing from the bulk lists, 5 found",
+    "notebook_section": "01 §3",
+    "rows": 35903,
+    "source_url": "https://li.quest/v1/tokens?chains=<id>&chainTypes=EVM,SVM,UTXO,MVM,TVM and https://li.quest/v1/token?chain=<id>&token=<address>"
+  },
+  "lifi_api_tools_bridges_and_exchanges.csv": {
+    "fetched_at_utc": "2026-10-28T14:48:56+00:00",
+    "notebook_section": "01 §4",
+    "rows": 79,
+    "source_url": "https://li.quest/v1/tools"
+  },
+  "lifi_api_transfer_status_bridge_census.csv": {
+    "fetched_at_utc": "2026-11-01T13:56:43+00:00",
+    "note": "third design: census_bridge_100k = every row without has_source_swaps with headline amount_usd >= 100,000 (309 events, 145,463,135.63 USD, 47.2% of the file's headline USD); no draw; 309 rows, one per event, the 77 columns of lifi_api_transfer_status_extension.csv in its order (sample_design = census_bridge_100k, in_census and in_strata false, stratum_* empty); 25 rows reuse the committed record of their hash (15 from edge_cases, 10 from sample_2600) with its original fetch time; the rest from 284 new calls: 284 calls from 2026-11-01T13:56:43+00:00 to 2026-11-01T13:59:30+00:00 (102 per minute observed, 0.1 s sleep after each call and a wait until ratelimit-reset whenever ratelimit-remaining fell below 3: 2 such waits); final HTTP statuses {200: 284}; HTTP 429 responses retried before a final response 0 (recorded per call as retries_429); minimum ratelimit-remaining 2 of 100; largest gap between consecutive calls 12 s",
+    "notebook_section": "07 §8.2",
+    "rows": 309,
+    "source_url": "https://li.quest/v1/status?txHash=<tx_hash>"
+  },
+  "lifi_api_transfer_status_edge_cases.csv": {
+    "fetched_at_utc": "2026-10-28T19:01:00+00:00",
+    "note": "311 calls: {'tx_hash': 283, 'tx_hash_bridge': 22, 'transaction_id': 6}; 311 calls from 2026-10-28T19:01:00+00:00 to 2026-10-28T19:07:07+00:00 (51 per minute observed, paced at 0.65 s sleep after each call plus the call's own latency); final HTTP statuses {200: 311}; minimum ratelimit-remaining 41 of 100, so the window was never exhausted and no HTTP 429 was returned (a retried 429 would not be recorded, the JSONL keeping each call's final response); largest gap between consecutive calls 4 s; 294 edge rows over 11 reasons, random picks with DataFrame.sample(random_state=20261029); one CSV row per (edge row, lookup)",
+    "notebook_section": "03 §4",
+    "rows": 328,
+    "source_url": "https://li.quest/v1/status?txHash=<tx_hash> (lookup tx_hash), https://li.quest/v1/status?txHash=<tx_hash>&bridge=<bridge> (lookup tx_hash_bridge), https://li.quest/v1/status?txHash=<transactionId> (lookup transaction_id)"
+  },
+  "lifi_api_transfer_status_extension.csv": {
+    "fetched_at_utc": "2026-11-01T12:05:46+00:00",
+    "note": "two designs over the 84,679 swap rows (has_source_swaps), seed 20261029: census_swap_10k = every row with headline amount_usd >= 10,000 (751 events); integrator_strata = per raw integrator string 30 events when it has 100+ swap rows, 10 when 10-99, every row under 10, a systematic draw over the rows sorted by (destination_chain_id, sending_asset_id, block_time) (4165 events over 584 strings; 48 events in both designs); 4868 rows, one per event; 133 rows reuse the committed record of their hash (98 from sample_2600, 35 from edge_cases) with its original fetch time; the rest from 4735 new calls: 4735 calls from 2026-11-01T12:05:46+00:00 to 2026-11-01T13:00:54+00:00 (86 per minute observed, 0.1 s sleep after each call and a wait until ratelimit-reset whenever ratelimit-remaining fell below 3: 7 such waits); final HTTP statuses {200: 4735}; HTTP 429 responses retried before a final response 0 (recorded per call as retries_429); minimum ratelimit-remaining 2 of 100; largest gap between consecutive calls 9 s",
+    "notebook_section": "07 §4",
+    "rows": 4868,
+    "source_url": "https://li.quest/v1/status?txHash=<tx_hash>"
+  },
+  "lifi_api_transfer_status_fee_lines.csv": {
+    "fetched_at_utc": "2026-10-28T14:48:57+00:00",
+    "note": "one row per fee line of the committed status responses: the quote's estimate.feeCosts, each batchStatus[].calls[].feeCosts and a top-level feeCosts, with the response and call keys; derived from the raw responses with no network call at 2026-10-29T16:59:33+00:00",
+    "notebook_section": "derived",
+    "rows": 6066,
+    "source_url": "the status calls behind sample_2600 and edge_cases: https://li.quest/v1/status?txHash=<tx_hash>"
+  },
+  "lifi_api_transfer_status_sample_2600.csv": {
+    "fetched_at_utc": "2026-10-28T19:07:08+00:00",
+    "note": "2,000 events drawn uniformly from the 124,858 rows minus the 600 of lifi_api_transfer_status_sample_600.csv and minus the 294 edge-case rows, DataFrame.sample(n=2000, random_state=20261029), per chain {'base': 574, 'ethereum': 477, 'bnb': 411, 'arbitrum': 325, 'polygon': 124, 'optimism': 89}; 2000 calls from 2026-10-28T19:07:08+00:00 to 2026-10-28T19:48:30+00:00 (48 per minute observed, paced at 0.65 s sleep after each call plus the call's own latency); final HTTP statuses {200: 2000}; minimum ratelimit-remaining 45 of 100, so the window was never exhausted and no HTTP 429 was returned (a retried 429 would not be recorded, the JSONL keeping each call's final response); largest gap between consecutive calls 5 s; plus the 600 of the earlier snapshot (01 §5, fetched 2026-10-28 14:48 to 16:03 UTC) re-flattened with sample_design = equal_per_chain_600 and their original fetch times; records by design {'equal_per_chain_600': 600, 'uniform_2000': 2000}; HTTP statuses of all 2,600 records {200: 2600}",
+    "notebook_section": "03 §6",
+    "rows": 2600,
+    "source_url": "https://li.quest/v1/status?txHash=<tx_hash>"
+  },
+  "lifi_chain_id_registry.csv": {
+    "fetched_at_utc": "2026-10-28T21:35:06+00:00",
+    "note": "one row per chain id named by any source or by the data: name, key, chain type, LI.FI namespace (API, contract or both) with its basis, membership in each source, the /v1/connections validation probe, the bridges /v1/tools lists, and the destinationChainId a /v1/quote calldata carries; derived from the raw responses at 2026-10-28T21:47:47+00:00",
+    "notebook_section": "01 §2.1",
+    "rows": 95,
+    "source_url": "the calls: https://li.quest/v1/chains, /connections, /tools, /quote; https://raw.githubusercontent.com/lifinance/contracts/f5686943150bf16cb0d1de649caef3cfa4dc959c/src/Helpers/LiFiData.sol; @lifi/types 18.14.0 and @lifi/data-types 7.1.6 from registry.npmjs.org"
+  }
+}

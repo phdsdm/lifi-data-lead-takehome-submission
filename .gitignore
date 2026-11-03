@@ -1,0 +1,11 @@
+# The two provided CSVs are not committed; drop them into data/
+data/*.csv
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+*.duckdb
+*.duckdb.wal
+.env
+.DS_Store

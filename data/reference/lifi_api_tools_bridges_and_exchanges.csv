@@ -1,0 +1,80 @@
+kind,key,name,n_supported_chains
+bridge,arbitrum,Arbitrum Bridge,1
+bridge,across,AcrossV4,332
+bridge,gnosis,Gnosis Bridge,1
+bridge,omni,Omni Bridge,1
+bridge,celercircle,CCTP + Celer (Standard),42
+bridge,celercirclefast,CCTP + Celer (Fast),42
+bridge,allbridge,Allbridge,156
+bridge,squid,Squid,156
+bridge,mayan,Mayan (Swift),128
+bridge,mayanWH,Mayan (Wormhole),2
+bridge,mayanMCTP,CCTP + Mayan,164
+bridge,stargateV2,StargateV2 (Fast mode),830
+bridge,stargateV2Bus,StargateV2 (Economy mode),830
+bridge,symbiosis,Symbiosis,846
+bridge,polygon,Polygon Bridge (PoS),1
+bridge,glacis,Glacis,780
+bridge,chainflip,Chainflip,10
+bridge,gasZipBridge,GasZip,3132
+bridge,relaydepository,Relay,1681
+bridge,mayanFastMCTP,CCTPv2 + Mayan,164
+bridge,unit,Unit,12
+bridge,polymer,Polymer (Fast),439
+bridge,polymerStandard,Polymer (Standard),439
+bridge,cctp,Circle CCTP,11
+bridge,eco,Eco,225
+bridge,near,NearIntents,238
+bridge,hyperliquidSA,Hyperliquid,2
+bridge,lifiIntents,LI.FI Intents,714
+bridge,garden,Garden,22
+bridge,megaeth,MegaETH Gateway,1
+bridge,hyperliquidNative,Hyperliquid Native,2
+bridge,superset,Superset,6
+bridge,paxos,Paxos Labs Transit,6
+bridge,smartDeposits,Smart Deposits,202
+bridge,layerswap,Layerswap,1849
+bridge,frax,Frax Bridge,441
+bridge,centrifuge,Centrifuge,2
+bridge,m0,M0,6
+exchange,bitget,Bitget,8
+exchange,dodo,DODO,7
+exchange,eisen,Eisen,18
+exchange,gluex,GlueX,4
+exchange,paraswap,Velora,1
+exchange,enso,Enso,17
+exchange,1inch,1inch,12
+exchange,openocean,De¹,29
+exchange,kyberswap,Kyberswap,20
+exchange,lifidexaggregator,LI.FI DEX Aggregator,5
+exchange,jupiter,Jupiter,1
+exchange,sushiswap,SushiSwap Aggregator,28
+exchange,bebop,Bebop,1
+exchange,okx,OKX Dex Aggregator,14
+exchange,aftermath,Aftermath,1
+exchange,bluefin7k,Bluefin7K,1
+exchange,merkle,Merkle,2
+exchange,liquidswap,LiquidSwap,1
+exchange,hyperbloom,Hyperbloom,1
+exchange,dflow,DFlow,1
+exchange,hypertrade,Hypertrade,1
+exchange,hyperflow,HyperFlow,1
+exchange,fly,Fly,36
+exchange,titan,Titan,1
+exchange,momentum,Momentum,1
+exchange,monorail,Monorail,1
+exchange,kuru,Kuru,1
+exchange,hyperliquidSpotDex,Hyperliquid,1
+exchange,nordstern,Nordstern Finance,24
+exchange,cetus,Cetus,1
+exchange,kumbaya,Kumbaya,1
+exchange,lifiIntentsDex,LI.FI Intents,31
+exchange,supersetDex,Superset,3
+exchange,paxosDex,Paxos Labs Transit,2
+exchange,m0Dex,M0,3
+exchange,smartDeposits,Smart Deposits,17
+exchange,nexroute,Nexroute,1
+exchange,rialto,Rialto,1
+exchange,soroswap,Soroswap,1
+exchange,sunswap,SunSwap,1
+exchange,peach,Peach,1
